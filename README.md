@@ -4,23 +4,22 @@
 # Setup Environment
 Use docker image ([link](https://hub.docker.com/_/ubuntu/tags?name=20.04))
 ```bash
-docker pull ubuntu:20.04
+$ docker pull ubuntu:20.04
 ```
 Check update
 ```
-apt update
-apt upgrade
-apt install sudo
+$ apt update
+$ apt upgrade
+$ apt install sudo
 ```
 # Build Host Packages ([link](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#build-host-packages))
 ```bash
-sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 liblz4-tool locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
+$ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 liblz4-tool locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
 ```
 # Use Git to Clone Poky ([link](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#use-git-to-clone-poky))
 ```bash
-cd home/
-git clone https://git.yoctoproject.org/poky
-
+$ cd home/
+$ git clone https://git.yoctoproject.org/poky
 Cloning into 'poky'...
 remote: Enumerating objects: 683895, done.
 remote: Counting objects: 100% (2081/2081), done.
@@ -32,9 +31,48 @@ Resolving deltas: 100% (496719/496719), done.
 Go to [Releases wiki page](https://wiki.yoctoproject.org/wiki/Releases), and choose a release codename (such as Dunfell)
 For this example, check out the `Dunfell` branch based on the `Dunfell` release:
 ```bash
-git checkout -t origin/dunfell -b my-dunfell
-
+$ git checkout -t origin/dunfell -b my-dunfell
 Branch 'my-dunfell' set up to track remote branch 'dunfell' from 'origin'.
 Switched to a new branch 'my-dunfell'
 ```
 
+# Building Your Image ([link](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#building-your-image))
+1. **Initialize the Build Environment**: From within the `poky` directory, run the `oe-init-build-env` environment setup script to define Yocto Project’s build environment on your build host.
+   ```
+   $ cd poky
+   $ source oe-init-build-env
+   
+   You had no conf/local.conf file. This configuration file has therefore been
+   created for you with some default values. You may wish to edit it to, for
+   example, select a different MACHINE (target hardware). See conf/local.conf
+   for more information as common configuration options are commented.
+   
+   You had no conf/bblayers.conf file. This configuration file has therefore been
+   created for you with some default values. To add additional metadata layers
+   into your configuration please add entries to conf/bblayers.conf.
+   
+   The Yocto Project has extensive documentation about OE including a reference
+   manual which can be found at:
+       https://docs.yoctoproject.org
+   
+   For more information about OpenEmbedded see their website:
+       https://www.openembedded.org/
+   
+   
+   ### Shell environment set up for builds. ###
+   
+   You can now run 'bitbake <target>'
+   
+   Common targets are:
+       core-image-minimal
+       core-image-sato
+       meta-toolchain
+       meta-ide-support
+   
+   You can also run generated qemu images with a command like 'runqemu qemux86'
+   
+   Other commonly useful commands are:
+    - 'devtool' and 'recipetool' handle common recipe tasks
+    - 'bitbake-layers' handles common layer tasks
+    - 'oe-pkgdata-util' handles common target package tasks
+   ```
