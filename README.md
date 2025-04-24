@@ -81,3 +81,10 @@ Switched to a new branch 'my-dunfell'
    $ cd local
    $ vim local.conf
    ```
+3. **Start the Build**: Continue with the following command to build an OS image for the target
+   Common targets are: core-image-minimal/core-image-sato/meta-toolchain/meta-ide-support
+   ```
+   $ cd poky
+   $ bitbake core-image-sato
+   ```
+   
