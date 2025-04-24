@@ -87,4 +87,35 @@ Switched to a new branch 'my-dunfell'
    $ cd poky
    $ bitbake core-image-sato
    ```
+   If show error message
+   ```
+   ERROR:  OE-core's config sanity checker detected a potential misconfiguration.
+   Either fix the cause of this error or at your own risk disable the checker (see sanity.conf).
+   Following is the list of potential problems / advisories:
+
+   Do not use Bitbake as root.
+   ```
+   Edit the `sanity.conf` in `poky/meta/conf/`, reference from ([stackoverflow](https://stackoverflow.com/a/64781820))
+   ```
+   $ cd poky/meta/conf
+   $ vim sanity.conf
+   ```
+   Common `INHERIT += "sanity"`, modified as below 
+   ```
+   # Sanity checks for common user misconfigurations
+   #
+   # See sanity.bbclass
+   #
+   # Expert users can confirm their sanity with "touch conf/sanity.conf"
+   BB_MIN_VERSION = "1.46.0"
+   
+   SANITY_ABIFILE = "${TMPDIR}/abi_version"
+   
+   SANITY_VERSION ?= "1"
+   LOCALCONF_VERSION  ?= "1"
+   LAYER_CONF_VERSION ?= "7"
+   SITE_CONF_VERSION  ?= "1"
+   
+   # INHERIT += "sanity"
+   ```
    
