@@ -10,14 +10,14 @@ Check update
 ```
 $ apt update
 $ apt upgrade
-$ apt install sudo
+$ apt install sudo vim
 ```
 # Build Host Packages ([link](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#build-host-packages))
 ```bash
 $ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 liblz4-tool locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
 ```
 # Use Git to Clone Poky ([link](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#use-git-to-clone-poky))
-```bash
+```
 $ cd home/
 $ git clone https://git.yoctoproject.org/poky
 Cloning into 'poky'...
@@ -30,7 +30,7 @@ Resolving deltas: 100% (496719/496719), done.
 ```
 Go to [Releases wiki page](https://wiki.yoctoproject.org/wiki/Releases), and choose a release codename (such as Dunfell)
 For this example, check out the `Dunfell` branch based on the `Dunfell` release:
-```bash
+```
 $ git checkout -t origin/dunfell -b my-dunfell
 Branch 'my-dunfell' set up to track remote branch 'dunfell' from 'origin'.
 Switched to a new branch 'my-dunfell'
@@ -75,4 +75,9 @@ Switched to a new branch 'my-dunfell'
     - 'devtool' and 'recipetool' handle common recipe tasks
     - 'bitbake-layers' handles common layer tasks
     - 'oe-pkgdata-util' handles common target package tasks
+   ```
+2. **Examine Your Local Configuration File**: When you set up the build environment, a local configuration file named `local.conf` becomes available in a `conf` subdirectory of the Build Directory. Nothing need to change can type `:q` to exit.
+   ```
+   $ cd local
+   $ vim local.conf
    ```
