@@ -2,7 +2,7 @@
  - [Yocto Homepage](https://github.com/nick8592/yocto-study.git)
 
 # Setup Environment
-Use docker image
+Use docker image ([link](https://hub.docker.com/_/ubuntu/tags?name=20.04))
 ```bash
 docker pull ubuntu:20.04
 ```
@@ -29,3 +29,12 @@ remote: Total 683895 (delta 1787), reused 1824 (delta 1685), pack-reused 681814
 Receiving objects: 100% (683895/683895), 216.16 MiB | 860.00 KiB/s, done.
 Resolving deltas: 100% (496719/496719), done.
 ```
+Go to [Releases wiki page](https://wiki.yoctoproject.org/wiki/Releases), and choose a release codename (such as Dunfell)
+For this example, check out the `Dunfell` branch based on the `Dunfell` release:
+```bash
+git checkout -t origin/dunfell -b my-dunfell
+
+Branch 'my-dunfell' set up to track remote branch 'dunfell' from 'origin'.
+Switched to a new branch 'my-dunfell'
+```
+
