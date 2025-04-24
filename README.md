@@ -6,6 +6,10 @@ Use docker image ([link](https://hub.docker.com/_/ubuntu/tags?name=20.04))
 ```bash
 $ docker pull ubuntu:20.04
 ```
+Run docker container
+```
+$ docker run -it ubuntu
+```
 Check update
 ```
 $ apt update
